@@ -1,0 +1,150 @@
+.lottie{
+    height: 400px;
+}
+
+.register{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, #f093fb 0%, #f5576c 100%);
+}
+
+.register input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(137, 137, 137, 0.696);
+    color: rgba(255, 255, 255, 0.728) !important;
+
+    
+}
+
+Input{
+    padding-left: 5px;
+   width: 400px;
+}
+
+.reg{
+    margin-top: 10px;
+    font-size: small;
+}
+
+input :focus{
+    outline : none !important;
+    box-shadow : none !important;
+}
+
+.redi{
+    color: blue;
+}
+
+label{
+    color: rgba(255, 255, 255, 0.728) !important;
+}
+
+.formitem{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.register h1{
+    font-size: 25px;
+    font-weight: bolder;
+    color: azure;
+    margin-bottom: 20px;
+}
+
+.link{
+    margin-top: 5px;
+    font-size: small;
+    color: blue;
+}
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    position: absolute;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .filter{
+    
+    box-shadow: 0 0 3px gray;
+   
+    padding: 17px 20px;
+    border-radius: 10px;
+  }
+
+
+.transaction-form label{
+    color: rgba(0, 0, 0, 0.77) !important;
+}
+.transaction-form input{
+    border: 1px solid gray;
+    border-bottom: 1px solid gray;
+    box-shadow: none !important;
+}
+.transaction-form input:focus{
+    border: 1px solid gray;
+    border-bottom: 1px solid gray !important;
+    box-shadow: none !important;
+}
+
+.ant-select-selector{
+    border: 1px solid gray !important;
+}
+.ant-select-selector:focus{
+    box-shadow:none !important;
+    outline: none !important;
+}
+
+.view{
+    
+    border: 1px solid rgba(0, 0, 0, 0.71);
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-right: 10px;
+
+}
+
+
+
+.anticon svg{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.active-icon{
+    color: rgb(245, 115, 15);
+    padding: 5px;size: 100%;
+   }
+ 
+
+.inactive-icon{
+    color: rgb(82, 2, 168);
+    padding: 5px;
+    
+
+}
+.ant-picker-range{
+    border: 1px solid black !important;
+}
+
+@media screen and (max-width:600px){
+    .filter{
+        overflow-x: scroll;
+    }
+}
+

@@ -1,0 +1,80 @@
+ .analytics{
+    box-shadow: 0 0 3px gray;
+    margin-top: 1%;
+    border-radius: 9px ;
+    overflow:auto;
+}
+/*
+.transactions{
+   
+    margin: 1% 5%;
+    height: 65vh;
+    width: 60vh;
+    box-shadow: 0 0 3px gray ;
+    border-radius: 9px ;
+    padding: 30px;
+    overflow-y: auto;
+   
+  }
+
+  .transactions h3{
+    font-size:x-large;
+    font-weight: bold;
+    color: gray;
+  }
+
+  .transactions hr{
+    color:gray;
+  
+    }
+
+  .transactions h6{
+    font-weight: bold;
+    margin: 0;
+  }
+   */
+  .progress-bar{
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+
+  .transactions{
+    box-shadow: 0 0 2px rgb(132, 131, 131);
+    padding: 15px;
+    border-radius: 10px;
+    color: rgb(56, 55, 55) !important;
+    overflow-y: auto;
+    margin:0 5%;
+    
+}
+
+.analytics h3{
+    font-size: 20px;
+    color: gray !important;
+    font-weight: 600;
+}
+.analytics h6{
+    font-size: 16px;
+    color: gray !important;
+}
+
+.category{
+    padding: 5px 20px;
+    /* box-shadow: 0 0 2px gray; */
+    margin: 15px;
+    border-radius: 5px;
+}
+
+hr{
+    margin: 5px 4px;
+}
+
+.progress{
+   height: auto;
+   width: auto;
+   margin: 5% 0;
+   padding: 5%;
+   box-shadow: 0 0 2px gray;
+   color: rgb(56, 55, 55) !important;
+  
+}
