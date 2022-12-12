@@ -13,6 +13,25 @@ router.post("/addtransaction", async function (req, res) {
   }
 });
 
+
+router.post("/edittransaction", async function (req, res) {
+  try {
+    await Transaction.findOneAndUpdate({_id : req.body.transactionId} , req.body.datas)
+    res.send("Transaction Updated Successfully");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+router.post("/deletetransaction",async function(req,res){
+  try{
+    await Transaction.findOneAndDelete({_id : req.body.transactionId});
+    res.send("Transaction Deleted Successfully");
+  }  catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 router.post("/getalltransactions", async function (req, res) {
   const { frequency, range ,type} = req.body;
   try {
