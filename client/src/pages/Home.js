@@ -3,12 +3,14 @@ import "./Authentication.css";
 import { message, Select, Table } from "antd";
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import Spinner from "../components/Spinner";
 import DefaultLayout from "../components/DefaultLayout";
 import axios from "axios";
 import AddTransaction from "../components/AddTransaction";
 import moment from "moment";
-import { DatePicker, Space } from "antd";
+import { DatePicker} from "antd";
 import Analytic from "../components/Analytic";
 const { RangePicker } = DatePicker;
 
@@ -20,6 +22,7 @@ const Home = (props) => {
   
   // };
   const [loading, setLoading] = useState(false);
+  const [edit , setEdit] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [transactionData, setTransactionData] = useState([]);
   const [frequency, setFrequency] = useState("0");
@@ -45,6 +48,19 @@ const Home = (props) => {
       message.error("Something Went Wrong");
     }
   };
+
+  const deleteTransaction =async(record)=>{
+    try{
+    await axios.post("/api/transactions/deletetransaction",{
+      transactionId : record._id
+    });
+    setLoading(false);
+    getTransactions();
+  }catch(error){
+    setLoading(false);
+    message.error("Something Went Wrong");
+  }
+  }
   useEffect(() => {
     getTransactions();
   }, [frequency, range, type]);
@@ -68,9 +84,32 @@ const Home = (props) => {
       dataIndex: "reference",
     },
     {
+      title: "Type",
+      dataIndex: "type",
+    },
+    {
       title: "Description",
       dataIndex: "description",
     },
+    {
+      title : "Action",
+      dataIndex : "action",
+      render : (text,record)=>{
+        return (
+          <div>
+             <EditIcon className="editicon" 
+                       onClick={() => {
+                             setEdit(record);
+                             setShowModal(true);
+              }}
+             />
+             <DeleteIcon className="deleteicon"
+                         onClick={()=>deleteTransaction(record)}
+             />
+          </div>
+        );
+      }
+    }
   ];
 
   return (
@@ -135,6 +174,8 @@ const Home = (props) => {
       {showModal && (
         <AddTransaction
           showModal={showModal}
+          edit={edit}
+          setEdit={setEdit}
           setShowModal={setShowModal}
           getTransactions={getTransactions}
         />

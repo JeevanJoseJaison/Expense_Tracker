@@ -46,6 +46,7 @@
     overflow-y: auto;
     margin:0 5%;
     
+    
 }
 
 .analytics h3{
@@ -76,5 +77,31 @@ hr{
    padding: 5%;
    box-shadow: 0 0 2px gray;
    color: rgb(56, 55, 55) !important;
+   
   
 }
+.loaderIcon{
+  
+  animation: spin 1s infinite ;
+}
+
+.color{
+  margin-top: 19px;
+  text-align: center;
+  font-size:x-large;
+  font-weight:bolder;
+  color: rgb(3, 151, 40);
+}
+@keyframes spin {
+  from {
+      transform: scale(1) rotateY(0deg);
+  }
+  to {
+      transform: scale(2) rotateY(360deg);
+  }
+}
+
+/* .background{
+  background-image: url("https://media.tenor.com/ZDe0dPKLr3AAAAAi/raining-money-money.gif");
+} */
+

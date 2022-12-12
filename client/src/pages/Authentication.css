@@ -148,3 +148,10 @@ label{
     }
 }
 
+.deleteicon{
+    color:red;
+}
+
+.editicon{
+    color: green;
+}

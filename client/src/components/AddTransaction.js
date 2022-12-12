@@ -5,17 +5,32 @@ import Spinner from './Spinner';
 import axios from "axios";
 
 
-const AddTransaction =({showModal,setShowModal,getTransactions})=> {
+const AddTransaction =({showModal,setShowModal,getTransactions,edit, setEdit})=> {
 
     const [loading , setLoading] = useState(false);
   const handleFinish = async (values) => {
     try {
         const user = JSON.parse(localStorage.getItem("expense-user"));
      setLoading(true);
+     if(edit){
+        await axios.post("/api/transactions/edittransaction",{
+         datas:{
+            ...values,
+            userID : user._id
+         },
+         transactionId : edit._id
+        });
+        message.success("Transaction edited Successfull");
+        getTransactions();
+     }
+     else
+     {
       await axios.post("/api/transactions/addtransaction", {...values , userID : user._id});
       message.success("Transaction added Successfull");
       getTransactions();
+     }
       setLoading(false);
+      setEdit(null);
       setShowModal(false);
     } catch (error) {
       message.error("Something went wrong");
@@ -31,7 +46,7 @@ const AddTransaction =({showModal,setShowModal,getTransactions})=> {
     onCancel={() => setShowModal(false)}
     footer ={false}
   > {loading && <Spinner/>}
-    <Form layout="vertical" className="transaction-form" onFinish={handleFinish}>
+    <Form layout="vertical" className="transaction-form" onFinish={handleFinish} initialValues={edit} >
       <Form.Item label="Amount" name="amount">
         <Input type="text" />
       </Form.Item>
